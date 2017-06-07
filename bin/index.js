@@ -72,12 +72,11 @@ files.forEach(item => {
         }
 
         item.newSize = fs.statSync(item.file).size;
-        const percDiff = Math.round(((1 - item.newSize / item.size) * 100));
+        const percDiff = Math.round(((1 - (item.newSize / item.size)) * 100));
 
         if (percDiff > 0) {
-            console.log(chalk.green(item.file + ' was compressed by ' + percDiff + "%!"));
-        }
-        else {
+            console.log(chalk.green(item.file + ' was compressed by ' + percDiff + '%!'));
+        } else {
             console.log(chalk.gray(item.file + ' was already compressed'));
         }
     });
