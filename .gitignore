@@ -1,0 +1,4 @@
+# dev environment
+.idea/
+node_modules/
+npm-debug.log
