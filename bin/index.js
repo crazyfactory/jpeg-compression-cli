@@ -79,9 +79,9 @@ const jobs = files.map(file => file && t(() =>
 ));
 
 // Report
-Promise.all(jobs).then(err => {
+Promise.all(jobs).then(() => {
     const failCount = files.length - compressedCount;
-    if (err || failCount > 0) {
+    if (failCount > 0) {
         console.log(chalk.red('Could not process ' + failCount + ' file(s).'));
     }
 
