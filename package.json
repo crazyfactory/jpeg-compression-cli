@@ -6,7 +6,6 @@
     "test": "xo",
     "semantic-release": "semantic-release pre && npm publish && semantic-release post"
   },
-  "preferGlobal": "true",
   "bin": {
     "jpgc": "./bin/index.js"
   },
@@ -29,6 +28,7 @@
     "guetzli": "^1.0.1",
     "image-type": "^2.1.0",
     "read-chunk": "^2.0.0",
+    "throat": "^3.1.0",
     "update-notifier": "^2.2.0"
   },
   "devDependencies": {
@@ -38,7 +38,8 @@
   "xo": {
     "space": 4,
     "rules": {
-      "import/no-unresolved": 0
+      "import/no-unresolved": 0,
+      "operator-linebreak": 0
     }
   }
 }
