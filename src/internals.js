@@ -48,14 +48,13 @@ function mapOutput(file, basePath, outputPath, output) {
 function outputExists(file) {
     try {
         return fs.statSync(file).size > 0;
-    }
-    catch (err) {
+    } catch (err) {
         return err.code !== 'ENOENT';
     }
 }
 
 module.exports = {
-    findImages: findImages,
-    mapOutput: mapOutput,
-    outputExists: outputExists
+    findImages,
+    mapOutput,
+    outputExists
 };

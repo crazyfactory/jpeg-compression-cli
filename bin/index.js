@@ -1,8 +1,8 @@
 #!/usr/bin/env node
 
-const fs = require('fs-extra');
 const path = require('path');
 const execFile = require('child_process').execFile;
+const fs = require('fs-extra');
 const guetzli = require('guetzli');
 const program = require('commander');
 const chalk = require('chalk');
@@ -16,7 +16,9 @@ const mapOutput = require('../src/internals').mapOutput;
 const outputExists = require('../src/internals').outputExists;
 
 // Notify for updates
-pkg.version && updateNotifier({pkg}).notify();
+if (pkg.version) {
+    updateNotifier({pkg}).notify();
+}
 
 // Define commander
 program
@@ -31,9 +33,9 @@ program
     .option('-v, --verbose', 'display additional information')
     .parse(process.argv);
 
-// running in Path Mode?
+// Running in Path or File Mode?
 const pathMode = !program.files || !program.files.length;
-if (!pathMode && program.output && program.output.length && program.output.length !== program.files.length) {
+if (!pathMode && program.output && program.output.length > 0 && program.output.length !== program.files.length) {
     console.log(chalk.red('expected 0 or ' + program.files.length + ' values for output-parameter, found ' + program.output.length));
     process.exit(1);
 }
