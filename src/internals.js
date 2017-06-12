@@ -28,4 +28,34 @@ function findImages(path, types, recursive) {
     return files;
 }
 
-module.exports = findImages;
+function mapOutput(file, basePath, outputPath, output) {
+    if (!file) {
+        return null;
+    }
+
+    // # file mode
+    if (!basePath) {
+        return output || file;
+    }
+
+    // # path mode
+    // Have basePath and outputPath? Combine!
+    return outputPath && basePath !== outputPath
+        ? outputPath + file.substring(basePath.length)
+        : file;
+}
+
+function outputExists(file) {
+    try {
+        return fs.statSync(file).size > 0;
+    }
+    catch (err) {
+        return err.code !== 'ENOENT';
+    }
+}
+
+module.exports = {
+    findImages: findImages,
+    mapOutput: mapOutput,
+    outputExists: outputExists
+};
