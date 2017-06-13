@@ -27,7 +27,7 @@
     "commander": "^2.9.0",
     "fs-extra": "^3.0.1",
     "guetzli": "^1.0.1",
-    "image-type": "^2.1.0",
+    "image-type": "^3.0.0",
     "read-chunk": "^2.0.0",
     "throat": "^3.1.0",
     "update-notifier": "^2.2.0"
