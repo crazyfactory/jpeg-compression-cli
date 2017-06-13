@@ -26,7 +26,7 @@ program
     .option('-r, --recursive', 'Walk given directory recursively')
     .option('-p, --path <path>', 'A path to crawl, defaults to current working directory')
     .option('-o, --output <path>', 'A target path to output the converted files, when using --files, provide multiple and separate by comma', v => v.split(','))
-    .option('-q, --quality <value>', 'A quality value, by default 95', parseInt)
+    .option('-q, --quality <value>', 'A quality value, by default 90', parseInt)
     .option('-c, --concurrency <number>', 'Parallel compression tasks, default 4', parseInt)
     .option('-f, --files <items>', 'the files you want to convert,split by \',\'', v => v.split(','))
     .option('-s, --skip', 'Will skip files if their output file already exists')
@@ -52,7 +52,7 @@ const outputPath = pathMode && ((program.output && program.output[0]) || basePat
 const t = throat(program.concurrency || 4);
 
 // Fill Queue
-const quality = program.quality || 95;
+const quality = program.quality || 90;
 let totalSize = 0;
 let totalSaved = 0;
 let totalSkipped = 0;
