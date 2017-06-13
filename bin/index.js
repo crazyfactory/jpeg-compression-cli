@@ -26,7 +26,7 @@ program
     .option('-r, --recursive', 'Walk given directory recursively')
     .option('-p, --path <path>', 'A path to crawl, defaults to current working directory')
     .option('-o, --output <path>', 'A target path to output the converted files, when using --files, provide multiple and separate by comma', v => v.split(','))
-    .option('-q, --quality <value>', 'A quality value, by default 95')
+    .option('-q, --quality <value>', 'A quality value, by default 95', parseInt)
     .option('-c, --concurrency <number>', 'Parallel compression tasks, default 4', parseInt)
     .option('-f, --files <items>', 'the files you want to convert,split by \',\'', v => v.split(','))
     .option('-s, --skip', 'Will skip files if their output file already exists')
