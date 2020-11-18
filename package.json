@@ -33,7 +33,7 @@
     "update-notifier": "^2.2.0"
   },
   "devDependencies": {
-    "semantic-release": "^6.3.6",
+    "semantic-release": "^17.2.3",
     "xo": "^0.18.2"
   },
   "xo": {
